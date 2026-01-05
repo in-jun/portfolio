@@ -4,316 +4,561 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>황인준 - DevOps 엔지니어</title>
+    <title>황인준 - DevOps Engineer</title>
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.min.css" rel="stylesheet">
     <style>
-        :root {
-            --primary: #2d3436;
-            --primary-dark: #1e2224;
-            --bg: #ffffff;
-            --card-bg: #f8fafc;
-            --text: #2d3436;
-            --text-secondary: #636e72;
-            --border: #dfe6e9;
-            --hover: #f1f5f9;
-            --gradient-start: #2d3436;
-            --gradient-end: #636e72;
-            --accent: #16a085;
-        }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+        }
+
+        :root {
+            --black: #000000;
+            --white: #ffffff;
+            --gray: #666666;
+            --light-gray: #f5f5f5;
+            --border: #e0e0e0;
         }
 
         body {
-            background: var(--bg);
-            color: var(--text);
+            font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+            background: var(--white);
+            color: var(--black);
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        .tech-tag {
-            color: var(--text);
-            background: var(--hover);
-            border: 1px solid var(--border);
-            transition: all 0.3s ease;
+        ::-webkit-scrollbar {
+            display: none;
         }
 
-        .tech-tag:hover {
-            background: var(--text);
-            color: var(--bg);
-            border-color: var(--text);
+        html {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
         }
 
-        .project h3,
-        .section-title {
-            color: var(--text);
-        }
-
-        .achievement-title {
-            color: var(--text);
-        }
-
-        .project:hover {
-            border-color: var(--text);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(45, 52, 54, 0.1);
-        }
-
-        .achievement-card:hover {
-            border-color: var(--text);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(45, 52, 54, 0.1);
-        }
-
-        .contact a:hover {
-            color: var(--text);
-            border-color: var(--text);
-            background: var(--hover);
-        }
-
-        .project-description h4 {
-            color: var(--text);
-            border-bottom-color: var(--border);
-        }
-
-        .project-description ul li::before {
-            color: var(--text);
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 6rem 2rem;
-        }
-
-        /* 헤더 */
         .header {
-            margin-bottom: 6rem;
-            position: relative;
-            padding: 2rem;
-            border-radius: 1rem;
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-        }
-
-        .name {
-            font-size: 4rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            background: linear-gradient(to right, var(--gradient-start), var(--gradient-end));
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            opacity: 0;
-            animation: fadeInUp 0.8s forwards;
-        }
-
-        .title {
-            font-size: 1.8rem;
-            color: var(--text-secondary);
-            margin-bottom: 2rem;
-            opacity: 0;
-            animation: fadeInUp 0.8s 0.2s forwards;
-        }
-
-        .contact {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-            margin-bottom: 2rem;
-            opacity: 0;
-            animation: fadeInUp 0.8s 0.4s forwards;
-        }
-
-        .contact a {
-            color: var(--text-secondary);
-            text-decoration: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 70px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
-            padding: 0.75rem 1.5rem;
-            border-radius: 0.5rem;
-            background: var(--bg);
-            border: 1px solid var(--border);
-            transition: all 0.3s ease;
+            justify-content: space-between;
+            padding: 0 4rem;
         }
 
-        .contact a:hover {
-            color: var(--primary);
-            border-color: var(--primary);
-            transform: translateY(-2px);
+        .logo {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--black);
+            text-decoration: none;
         }
 
-        /* 섹션 */
-        .section {
-            margin-bottom: 6rem;
-            opacity: 0;
-            transform: translateY(20px);
+        .nav-menu {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
         }
 
-        .section.visible {
-            animation: fadeInUp 0.8s forwards;
+        .nav-menu a {
+            color: var(--gray);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: var(--black);
+        }
+
+        .floating-social {
+            position: fixed;
+            left: 2rem;
+            bottom: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+            z-index: 100;
+        }
+
+        .floating-social::after {
+            content: '';
+            width: 1px;
+            height: 90px;
+            background: var(--border);
+        }
+
+        .floating-social a {
+            color: var(--gray);
+            font-size: 1.2rem;
+            transition: all 0.3s;
+        }
+
+        .floating-social a:hover {
+            color: var(--black);
+            transform: translateY(-3px);
+        }
+
+        .floating-email {
+            position: fixed;
+            right: 2rem;
+            bottom: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+            z-index: 100;
+        }
+
+        .floating-email::after {
+            content: '';
+            width: 1px;
+            height: 90px;
+            background: var(--border);
+        }
+
+        .floating-email a {
+            writing-mode: vertical-rl;
+            color: var(--gray);
+            text-decoration: none;
+            font-size: 0.85rem;
+            letter-spacing: 0.1em;
+            transition: all 0.3s;
+        }
+
+        .floating-email a:hover {
+            color: var(--black);
+            transform: translateY(-3px);
+        }
+
+        .main-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 70px 2rem 0;
+        }
+
+        section {
+            min-height: 100vh;
+            padding: 100px 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .section-title {
-            font-size: 2.2rem;
-            margin-bottom: 3rem;
-            color: var(--primary);
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding-bottom: 1rem;
-            border-bottom: 2px solid var(--border);
-        }
-
-        /* 프로젝트 */
-        .project {
-            background: var(--card-bg);
-            padding: 2.5rem;
-            border-radius: 1rem;
-            margin-bottom: 3rem;
-            border: 1px solid var(--border);
-            transition: all 0.3s ease;
-        }
-
-        .project:hover {
-            border-color: var(--primary);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 102, 255, 0.1);
-        }
-
-        .project h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            color: var(--primary);
-        }
-
-        .project-period {
-            font-size: 1rem;
-            color: var(--text-secondary);
-            margin-bottom: 2rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .project-description h4 {
-            color: var(--text);
-            font-size: 1.3rem;
-            margin: 2rem 0 1rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .project-link {
-            margin-top: 1rem;
-            color: var(--text-secondary);
-        }
-
-        .project-link a {
-            color: var(--primary);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .project-link a:hover {
-            color: var(--text);
-        }
-
-        .project-description ul {
-            list-style: none;
-            margin: 1rem 0;
-            color: var(--text-secondary);
-        }
-
-        .project-description ul li {
-            margin-bottom: 1rem;
-            padding-left: 1.5rem;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 4rem;
             position: relative;
+            display: inline-block;
         }
 
-        .project-description ul li::before {
-            content: "•";
-            color: var(--primary);
+        .section-title::before {
+            content: attr(data-number);
+            font-size: 1.2rem;
+            color: var(--gray);
+            margin-right: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
             position: absolute;
             left: 0;
+            bottom: -10px;
+            width: 60px;
+            height: 2px;
+            background: var(--black);
         }
 
-        .project-description ul li ul {
-            margin-top: 0.5rem;
+        #hero {
+            padding-top: 90px;
+            padding-bottom: 100px;
         }
 
-        .project-description ul li ul li {
+        .hero-greeting {
+            font-size: 1rem;
+            color: var(--gray);
+            margin-bottom: 2rem;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-subtitle {
+            font-size: 2rem;
+            color: var(--gray);
+            margin-bottom: 2rem;
+        }
+
+        .hero-description {
+            max-width: 600px;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--gray);
+            margin-bottom: 3rem;
+        }
+
+        .hero-cta {
+            display: inline-block;
+            padding: 1rem 2rem;
+            border: 1px solid var(--black);
+            color: var(--black);
+            text-decoration: none;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .hero-cta:hover {
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 3fr 2fr;
+            gap: 4rem;
+        }
+
+        .about-text {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--gray);
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text strong {
+            color: var(--black);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.5rem;
+        }
+
+        .skill-category {
+            margin-bottom: 1.5rem;
+        }
+
+        .skill-category h3 {
+            font-size: 0.95rem;
+            margin-bottom: 0.75rem;
+            color: var(--black);
+        }
+
+        .skill-item {
+            font-size: 0.85rem;
+            color: var(--gray);
+            padding: 0.4rem 0;
+            position: relative;
+            padding-left: 1.2rem;
+        }
+
+        .skill-item::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--black);
+            font-size: 0.8rem;
+        }
+
+        .experience-list {
+            display: flex;
+            flex-direction: column;
+            gap: 4rem;
+        }
+
+        .experience-item {
+            border-left: 2px solid var(--border);
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: -5px;
+            top: 0;
+            width: 8px;
+            height: 8px;
+            background: var(--black);
+            border-radius: 50%;
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .experience-title {
+            font-size: 1.5rem;
+            font-weight: 700;
             margin-bottom: 0.5rem;
+        }
+
+        .experience-company {
+            font-size: 1.1rem;
+            color: var(--gray);
+        }
+
+        .experience-period {
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        .experience-highlights {
+            list-style: none;
+        }
+
+        .experience-highlights li {
+            color: var(--gray);
+            padding: 0.5rem 0;
             padding-left: 1.5rem;
+            position: relative;
         }
 
-        .project-description ul li ul li::before {
-            content: "-";
+        .experience-highlights li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--black);
         }
 
-        .tech-stack {
+        .projects-list {
+            display: flex;
+            flex-direction: column;
+            gap: 6rem;
+        }
+
+        .project-item {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .project-item:nth-child(even) {
+            direction: rtl;
+        }
+
+        .project-item:nth-child(even)>* {
+            direction: ltr;
+        }
+
+        .project-content {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .project-label {
+            font-size: 0.85rem;
+            color: var(--gray);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .project-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .project-description {
+            background: var(--light-gray);
+            padding: 2rem;
+            border-radius: 4px;
+            color: var(--gray);
+            line-height: 1.8;
+        }
+
+        .project-tech {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.75rem;
-            margin-top: 2rem;
+            gap: 1rem;
+            font-size: 0.85rem;
+            color: var(--gray);
         }
 
-        .tech-tag {
-            color: var(--primary);
-            padding: 0.5rem 1rem;
-            border-radius: 2rem;
-            font-size: 0.9rem;
-            background: var(--bg);
-            border: 1px solid var(--primary);
-            transition: all 0.3s ease;
+        .project-links {
+            display: flex;
+            gap: 1rem;
         }
 
-        .tech-tag:hover {
-            background: var(--primary);
-            color: var(--bg);
-            transform: translateY(-2px);
+        .project-links a {
+            color: var(--gray);
+            font-size: 1.3rem;
+            transition: color 0.3s;
         }
 
-        /* 성과 */
-        .achievements {
+        .project-links a:hover {
+            color: var(--black);
+        }
+
+        .project-visual {
+            width: 100%;
+            aspect-ratio: 16/10;
+            background: var(--light-gray);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray);
+        }
+
+        .achievements-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 2rem;
         }
 
-        .achievement-card {
-            background: var(--card-bg);
+        .achievement-item {
             padding: 2rem;
-            border-radius: 1rem;
             border: 1px solid var(--border);
-            transition: all 0.3s ease;
+            transition: all 0.3s;
         }
 
-        .achievement-card:hover {
-            border-color: var(--primary);
-            transform: translateY(-5px);
+        .achievement-item:hover {
+            background: var(--light-gray);
         }
 
         .achievement-title {
-            font-size: 1.4rem;
-            color: var(--primary);
+            font-size: 1.2rem;
+            font-weight: 700;
             margin-bottom: 1rem;
         }
 
         .achievement-description {
-            color: var(--text-secondary);
+            color: var(--gray);
             line-height: 1.6;
+            margin-bottom: 1rem;
         }
 
-        /* 애니메이션 */
+        .achievement-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            color: var(--gray);
+        }
+
+        #contact {
+            text-align: center;
+            align-items: center;
+        }
+
+        .contact-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+        }
+
+        .contact-description {
+            max-width: 600px;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--gray);
+            margin-bottom: 3rem;
+        }
+
+        .contact-button {
+            display: inline-block;
+            padding: 1.5rem 3rem;
+            border: 1px solid var(--black);
+            color: var(--black);
+            text-decoration: none;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .contact-button:hover {
+            background: var(--black);
+            color: var(--white);
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 0 2rem;
+            }
+
+            .nav-menu {
+                gap: 1.5rem;
+            }
+
+            .main-content {
+                padding: 70px 1.5rem 0;
+            }
+
+            section {
+                padding: 80px 0;
+                min-height: auto;
+            }
+
+            #hero {
+                padding-top: 120px;
+                padding-bottom: 80px;
+                min-height: auto;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.5rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .project-item,
+            .project-item:nth-child(even) {
+                grid-template-columns: 1fr;
+                direction: ltr;
+            }
+
+            .floating-social,
+            .floating-email {
+                display: none;
+            }
+
+            .contact-title {
+                font-size: 2rem;
+            }
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(20px);
+                transform: translateY(30px);
             }
 
             to {
@@ -322,296 +567,508 @@
             }
         }
 
-        /* 반응형 */
-        @media (max-width: 768px) {
-            .container {
-                padding: 4rem 1rem;
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
             }
 
-            .name {
-                font-size: 2.5rem;
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
             }
 
-            .title {
-                font-size: 1.4rem;
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes typing {
+            from {
+                width: 0;
             }
 
-            .project {
-                padding: 1.5rem;
+            to {
+                width: 100%;
             }
+        }
 
-            .project h3 {
-                font-size: 1.5rem;
+        @keyframes blink {
+            50% {
+                border-color: transparent;
             }
+        }
 
-            .section-title {
-                font-size: 1.8rem;
-            }
+        .hero-greeting {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .hero-title {
+            animation: fadeInUp 0.6s ease 0.2s forwards;
+            opacity: 0;
+        }
+
+        .hero-subtitle {
+            animation: fadeInUp 0.6s ease 0.4s forwards;
+            opacity: 0;
+        }
+
+        .hero-description {
+            animation: fadeInUp 0.6s ease 0.6s forwards;
+            opacity: 0;
+        }
+
+        .hero-cta {
+            animation: fadeInUp 0.6s ease 0.8s forwards;
+            opacity: 0;
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .stagger-item {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .stagger-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .project-item {
+            transition: transform 0.3s ease;
+        }
+
+        .project-visual img {
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .project-visual:hover img {
+            transform: scale(1.1);
+            opacity: 1 !important;
+        }
+
+        .skill-item {
+            transition: transform 0.2s ease, color 0.2s ease;
+        }
+
+        .skill-item:hover {
+            transform: translateX(5px);
+            color: var(--black);
+        }
+
+        .achievement-item {
+            transition: all 0.3s ease, transform 0.3s ease;
+        }
+
+        .achievement-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .floating-social,
+        .floating-email {
+            animation: fadeIn 1s ease 1s forwards;
+            opacity: 0;
         }
     </style>
 </head>
 
 <body>
-    <div class="container">
-        <header class="header">
-            <h1 class="name">황인준</h1>
-            <h2 class="title">DevOps 엔지니어</h2>
-            <div class="contact">
-                <a href="mailto:injun@injunweb.com">
-                    <i class="ri-mail-line"></i>injun@injunweb.com
-                </a>
-                <a href="https://injun.dev">
-                    <i class="ri-global-line"></i>injun.dev
-                </a>
-                <a href="https://blog.injun.dev">
-                    <i class="ri-article-line"></i>blog.injun.dev
-                </a>
-                <a href="https://github.com/in-jun">
-                    <i class="ri-github-line"></i>github.com/in-jun
-                </a>
-            </div>
-            <p style="color: var(--text-secondary); font-size: 1.2rem; line-height: 1.8;">
-                다양한 관점에서 문제를 분석하고 특별한 인프라를 구축하는 것에 열정을 가진 DevOps 엔지니어입니다.
-                작은 개선이 큰 성장을 가져온다고 믿으며, 기술에 대한 호기심으로 계속해서 학습하고 도전합니다.
-            </p>
-        </header>
+    <header class="header">
+        <a href="#hero" class="logo">INJUN.DEV</a>
+        <nav>
+            <ul class="nav-menu">
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#achievements">Achievements</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-        <section class="section" id="projects">
-            <h2 class="section-title">
-                <i class="ri-folder-line"></i>
-                프로젝트
-            </h2>
-
-            <div class="project">
-                <h3>Kubernetes 기반 개인 GitOps 플랫폼</h3>
-                <div class="project-period">
-                    <i class="ri-calendar-line"></i>2024.09 - 진행중
-                </div>
-                <div class="project-description">
-                    <h4>프로젝트 개요</h4>
-                    <p>
-                        개인 프로젝트들의 자동화된 배포와 운영을 위한 GitOps 기반 클라우드 네이티브 플랫폼을 구축했습니다.
-                        Infrastructure as Code와 GitOps 원칙을 준수하며, 모든 변경사항이 Git을 통해 선언적으로 관리되도록 설계했습니다.
-                    </p>
-
-                    <h4>주요 역할 및 기술적 기여</h4>
-                    <ul>
-                        <li>
-                            <strong>인프라 아키텍처 설계</strong>
-                            <ul>
-                                <li>Kubernetes 클러스터 설계 및 구축</li>
-                                <li>고가용성을 고려한 멀티 노드 아키텍처 구현</li>
-                                <li>효율적인 리소스 관리를 위한 노드 구성 최적화</li>
-                            </ul>
-                        </li>
-                        <li>
-                            <strong>GitOps 파이프라인 구축</strong>
-                            <ul>
-                                <li>Argo CD를 활용한 선언적 배포 파이프라인 구현</li>
-                                <li>GitHub Actions를 통한 자동화된 Git 저장소 관리</li>
-                                <li>멀티 스테이지 배포 전략 수립</li>
-                            </ul>
-                        </li>
-                        <li>
-                            <strong>모니터링 및 보안 인프라 구축</strong>
-                            <ul>
-                                <li>Grafana를 활용한 통합 모니터링 대시보드 구현</li>
-                                <li>Traefik을 통한 엔드포인트 관리 및 트래픽 모니터링</li>
-                                <li>Vault와 Longhorn을 통한 시크릿 및 스토리지 관리</li>
-                                <li>Loki를 활용한 중앙 집중식 로그 관리 시스템 구축</li>
-                            </ul>
-                        </li>
-                        <li>
-                            <strong>CI/CD 파이프라인 구축</strong>
-                            <ul>
-                                <li>Argo CD와 Argo Workflows를 활용한 GitOps 기반 배포 자동화</li>
-                                <li>Harbor를 통한 컨테이너 이미지 및 Helm 차트 관리</li>
-                                <li>보안 취약점 스캐닝 및 컴플라이언스 검사 자동화</li>
-                            </ul>
-                        </li>
-                        <li>
-                            <strong>스토리지 및 데이터 관리</strong>
-                            <ul>
-                                <li>Longhorn을 활용한 분산 스토리지 시스템 구축</li>
-                                <li>볼륨 스냅샷 및 백업 자동화 구현</li>
-                                <li>고가용성을 위한 데이터 복제 정책 수립</li>
-                            </ul>
-                        </li>
-
-                        <h4>기술적 도전과 해결</h4>
-                        <ul>
-                            <li>Traefik과 Loki를 연동하여 실시간 트래픽 모니터링 및 로그 분석 파이프라인 구축</li>
-                            <li>Argo Workflows를 활용한 복잡한 CI/CD 워크플로우 자동화</li>
-                            <li>Vault와 Longhorn을 활용한 안전한 데이터 관리 체계 구현</li>
-                            <li>Harbor의 취약점 스캐닝과 이미지 서명 기능을 활용한 보안 강화</li>
-                        </ul>
-
-                        <h4>프로젝트 회고</h4>
-                        <p>
-                            이 프로젝트를 통해 클라우드 네이티브 기술 스택에 대한 깊은 이해를 얻을 수 있었습니다.
-                            특히 GitOps 방식의 인프라 관리가 가져다주는 투명성과 재현성의 이점을 체감했으며,
-                            자동화된 파이프라인이 개발 생산성에 미치는 긍정적인 영향을 확인했습니다.
-                        </p>
-                </div>
-                <div class="tech-stack">
-                    <span class="tech-tag">Kubernetes</span>
-                    <span class="tech-tag">Argo CD</span>
-                    <span class="tech-tag">Argo Workflows</span>
-                    <span class="tech-tag">Harbor</span>
-                    <span class="tech-tag">Traefik</span>
-                    <span class="tech-tag">Grafana</span>
-                    <span class="tech-tag">Loki</span>
-                    <span class="tech-tag">Vault</span>
-                    <span class="tech-tag">Longhorn</span>
-                    <span class="tech-tag">Helm</span>
-                </div>
-            </div>
-
-            <div class="project">
-                <h3>URL 단축 서비스</h3>
-                <div class="project-period">
-                    <i class="ri-calendar-line"></i>2025.02.10 - 2025.02.20
-                </div>
-                <div class="project-description">
-                    <h4>프로젝트 개요</h4>
-                    <p>
-                        긴 URL을 짧고 기억하기 쉬운 URL로 변환해주는 서비스를 개발했습니다.
-                    </p>
-
-                    <h4>주요 역할 및 기술적 기여</h4>
-                    <ul>
-                        <li>
-                            <strong>백엔드 아키텍처 설계</strong>
-                            <ul>
-                                <li>헥사고날 아키텍처의 개념을 참고한 계층 구조 설계</li>
-                                <li>도메인 주도 설계의 개념을 참고한 도메인 모델 구현</li>
-                                <li>관심사 분리와 의존성 역전 원칙을 고려한 패키지 구조화</li>
-                                <li>Go와 Gin 프레임워크를 활용한 RESTful API 개발</li>
-                            </ul>
-                        </li>
-                        <li>
-                            <strong>데이터베이스 설계 및 최적화</strong>
-                            <ul>
-                                <li>Raw SQL을 활용한 데이터베이스 직접 통신 구현</li>
-                                <li>ORM 제거를 통한 쿼리 최적화 및 성능 향상</li>
-                                <li>URL 조회 성능을 위한 인덱싱 전략 수립</li>
-                            </ul>
-                        </li>
-                        <li>
-                            <strong>보안 및 검증</strong>
-                            <ul>
-                                <li>Cloudflare Turnstile을 활용한 스팸 방지 시스템 구현</li>
-                            </ul>
-                        </li>
-                    </ul>
-
-                    <h4>기술적 도전과 해결</h4>
-                    <ul>
-                        <li>ORM에서 Raw SQL로의 전환을 통해 쿼리 성능 30% 향상 및 코드 복잡도 감소</li>
-                        <li>클린 아키텍처와 헥사고날 아키텍처의 개념을 참고한 유지보수가 용이한 코드 구조 설계</li>
-                        <li>도메인 주도 설계의 개념을 참고하여 비즈니스 로직의 응집도 개선</li>
-                        <li>개인 GitOps 플랫폼을 활용한 자동화된 배포 및 운영 구현</li>
-                    </ul>
-
-                    <h4>배포 및 운영</h4>
-                    <ul>
-                        <li>
-                            <strong>GitOps 기반 배포 자동화</strong>
-                            <ul>
-                                <li>기 구축된 Kubernetes 기반 GitOps 플랫폼 활용</li>
-                                <li>Argo CD를 통한 선언적 배포 관리</li>
-                                <li>Argo Workflows를 활용한 CI/CD 파이프라인 구성</li>
-                            </ul>
-                        </li>
-                        <li>
-                            <strong>모니터링 및 운영</strong>
-                            <ul>
-                                <li>Grafana 대시보드를 통한 서비스 메트릭 모니터링</li>
-                                <li>Loki를 활용한 로그 집중화</li>
-                                <li>Traefik을 통한 트래픽 관리</li>
-                            </ul>
-                        </li>
-                    </ul>
-
-                    <h4>프로젝트 회고</h4>
-                    <p>
-                        이 프로젝트를 진행하면서 ORM의 장단점을 직접 경험할 수 있었습니다.
-                        처음에는 ORM을 사용했지만, Raw SQL로 전환하며 쿼리 최적화와 성능 개선을 경험했습니다.
-                        또한 DDD와 클린 아키텍처의 개념들을 참고해 코드를 구조화하면서,
-                        더 나은 설계 방식에 대해 고민하고 배울 수 있었습니다.
-                    </p>
-                </div>
-                <div class="tech-stack">
-                    <span class="tech-tag">Go</span>
-                    <span class="tech-tag">Gin</span>
-                    <span class="tech-tag">MySQL</span>
-                    <span class="tech-tag">React</span>
-                    <span class="tech-tag">TypeScript</span>
-                    <span class="tech-tag">Clean Architecture</span>
-                    <span class="tech-tag">Kubernetes</span>
-                    <span class="tech-tag">Argo CD</span>
-                    <span class="tech-tag">Argo Workflows</span>
-                    <span class="tech-tag">Cloudflare Turnstile</span>
-                </div>
-            </div>
-        </section>
-
-        <section class="section" id="achievements">
-            <h2 class="section-title">
-                <i class="ri-award-line"></i>
-                주요 성과
-            </h2>
-            <div class="achievements">
-                <div class="achievement-card">
-                    <h3 class="achievement-title">인프라 자동화</h3>
-                    <p class="achievement-description">
-                        GitOps 방식의 배포 파이프라인을 구축해 배포 과정을 자동화했습니다.
-                        쿠버네티스를 활용한 리소스 관리로 인프라 운영 효율을 높였습니다.
-                    </p>
-                </div>
-                <div class="achievement-card">
-                    <h3 class="achievement-title">모니터링 시스템</h3>
-                    <p class="achievement-description">
-                        Grafana와 Loki로 구성된 모니터링 환경을 구축했습니다.
-                        실시간 서비스 상태 확인과 로그 분석이 가능한 대시보드를 만들었습니다.
-                    </p>
-                </div>
-                <div class="achievement-card">
-                    <h3 class="achievement-title">배포 자동화</h3>
-                    <p class="achievement-description">
-                        Argo CD와 Argo Workflows로 CI/CD 파이프라인을 구성했습니다.
-                        코드 변경사항이 자동으로 반영되는 배포 환경을 구축했습니다.
-                    </p>
-                </div>
-            </div>
-        </section>
+    <div class="floating-social">
+        <a href="https://github.com/in-jun" target="_blank" aria-label="GitHub">
+            <i class="ri-github-fill"></i>
+        </a>
+        <a href="https://blog.injun.dev" target="_blank" aria-label="Blog">
+            <i class="ri-article-line"></i>
+        </a>
     </div>
 
+    <div class="floating-email">
+        <a href="mailto:me@injun.dev">me@injun.dev</a>
+    </div>
+
+    <main class="main-content">
+        <section id="hero">
+            <p class="hero-greeting">안녕하세요, 문제를 해결하는</p>
+            <h1 class="hero-title">황인준입니다.</h1>
+            <h2 class="hero-subtitle">가용성과 자동화를 고민하는<br>DevOps 엔지니어입니다.</h2>
+            <p class="hero-description">
+                12개 프로젝트와 50개 서비스를 운영하며 Kubernetes 기반의 인프라 자동화에 집중하고 있습니다.
+                불필요한 수동 작업을 제거하고, 측정 가능한 시스템을 구축하는 것에 즐거움을 느낍니다.
+            </p>
+            <a href="#contact" class="hero-cta">연락하기</a>
+        </section>
+
+        <section id="about">
+            <h2 class="section-title" data-number="01.">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>저는 <strong>Kubernetes</strong>와 <strong>GitOps</strong>를 활용해 개발자가 오직 코드에만 집중할 수 있는 환경을 만드는 것을 목표로
+                        합니다.</p>
+                    <p>최근 <strong>XQUARE 프로젝트</strong>에서 클라우드 비용 절감을 위해 EKS 환경을 온프레미스로 성공적으로 마이그레이션 했으며, CI/CD 파이프라인
+                        최적화를 통해 배포 트리거 시간을 <strong>3분에서 1초 미만으로 단축</strong>했습니다.</p>
+                    <p>집에서는 3대의 Dell 서버로 <strong>홈랩</strong>을 운영하며, 장애 상황을 시뮬레이션하고 새로운 기술을 검증하는 것을 즐깁니다.</p>
+                </div>
+                <div>
+                    <div class="skill-category">
+                        <h3>Infrastructure</h3>
+                        <div class="skills-grid">
+                            <div class="skill-item">Kubernetes</div>
+                            <div class="skill-item">Docker</div>
+                            <div class="skill-item">AWS</div>
+                            <div class="skill-item">Proxmox</div>
+                            <div class="skill-item">Terraform</div>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>CI/CD & GitOps</h3>
+                        <div class="skills-grid">
+                            <div class="skill-item">ArgoCD</div>
+                            <div class="skill-item">Argo Workflows</div>
+                            <div class="skill-item">GitHub Actions</div>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Observability</h3>
+                        <div class="skills-grid">
+                            <div class="skill-item">Prometheus</div>
+                            <div class="skill-item">Grafana</div>
+                            <div class="skill-item">Loki</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience">
+            <h2 class="section-title" data-number="02.">Experience</h2>
+            <div class="experience-list">
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <h3 class="experience-title">DevOps Lead</h3>
+                            <p class="experience-company">XQUARE Project</p>
+                        </div>
+                        <p class="experience-period">2024.10 - Present</p>
+                    </div>
+                    <ul class="experience-highlights">
+                        <li>AWS EKS → 온프레미스 마이그레이션을 통한 운영 비용 70% 절감</li>
+                        <li>Argo Workflows 도입으로 배포 트리거 지연 시간 단축 (3분 → 1초 미만)</li>
+                        <li>Cilium CNI 도입을 통한 클러스터 내부 네트워킹 성능 최적화</li>
+                        <li>Loki/Prometheus 기반의 중앙 집중형 로깅 및 모니터링 체계 구축</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2 class="section-title" data-number="03.">Projects</h2>
+            <div class="projects-list">
+                <div class="project-item">
+                    <div class="project-content">
+                        <p class="project-label">Featured Project</p>
+                        <h3 class="project-title">XQUARE</h3>
+                        <div class="project-description">
+                            교내 개발 플랫폼의 전체 인프라를 관리합니다. 고가용성 유지를 위한 멀티 마스터 클러스터 구성과 GitOps 기반의 완전 자동화된 배포 환경을 구축했습니다.
+                        </div>
+                        <div class="project-tech">
+                            <span>Kubernetes</span>
+                            <span>Argo CD</span>
+                            <span>Terraform</span>
+                            <span>AWS</span>
+                            <span>Cilium</span>
+                            <span>Grafana</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/team-xquare" target="_blank" aria-label="GitHub">
+                                <i class="ri-github-fill"></i>
+                            </a>
+                            <a href="https://github.com/team-xquare" target="_blank" aria-label="External">
+                                <i class="ri-external-link-line"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-visual"
+                        style="display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 20px; padding: 30px;">
+                        <img src="images/kubernetes.svg" alt="Kubernetes" style="height: 60px; opacity: 0.85;">
+                        <img src="images/docker.svg" alt="Docker" style="height: 60px; opacity: 0.85;">
+                        <img src="images/argo-cd.svg" alt="ArgoCD" style="height: 60px; opacity: 0.85;">
+                        <img src="images/cilium.svg" alt="Cilium" style="height: 60px; opacity: 0.85;">
+                        <img src="images/ansible.svg" alt="Ansible" style="height: 60px; opacity: 0.85;">
+                        <img src="images/terraform.svg" alt="Terraform" style="height: 60px; opacity: 0.85;">
+                        <img src="images/prometheus.svg" alt="Prometheus" style="height: 60px; opacity: 0.85;">
+                        <img src="images/grafana.svg" alt="Grafana" style="height: 60px; opacity: 0.85;">
+                        <img src="images/github-actions.svg" alt="GitHub Actions" style="height: 60px; opacity: 0.85;">
+                    </div>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-content">
+                        <p class="project-label">Featured Project</p>
+                        <h3 class="project-title">INJUNWEB</h3>
+                        <div class="project-description">
+                            Dell R730 서버 3대를 활용한 프라이빗 클라우드입니다. Proxmox 가상화 위에서 Ceph 분산 스토리지를 운영하며 인프라 엔지니어링 역량을 쌓고 있습니다.
+                        </div>
+                        <div class="project-tech">
+                            <span>Kubernetes</span>
+                            <span>Proxmox</span>
+                            <span>Ceph</span>
+                            <span>Argo CD</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/injunweb" target="_blank" aria-label="GitHub">
+                                <i class="ri-github-fill"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-visual"
+                        style="display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 20px; padding: 30px;">
+                        <img src="images/proxmox.svg" alt="Proxmox" style="height: 60px; opacity: 0.85;">
+                        <img src="images/talos.svg" alt="Talos" style="height: 60px; opacity: 0.85;">
+                        <img src="images/docker.svg" alt="Docker" style="height: 60px; opacity: 0.85;">
+                        <img src="images/kubernetes.svg" alt="Kubernetes" style="height: 60px; opacity: 0.85;">
+                        <img src="images/ceph.svg" alt="Ceph" style="height: 60px; opacity: 0.85;">
+                        <img src="images/linux.svg" alt="Linux" style="height: 60px; opacity: 0.85;">
+                        <img src="images/grafana.svg" alt="Grafana" style="height: 60px; opacity: 0.85;">
+                        <img src="images/prometheus.svg" alt="Prometheus" style="height: 60px; opacity: 0.85;">
+                    </div>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-content">
+                        <p class="project-label">Project</p>
+                        <h3 class="project-title">URL 단축 서비스</h3>
+                        <div class="project-description">
+                            Go와 Gin 프레임워크를 활용한 URL 단축 서비스입니다.
+                            헥사고날 아키텍처와 DDD 개념을 참고하여 설계했으며,
+                            ORM에서 Raw SQL로 전환하여 쿼리 성능을 30% 향상시켰습니다.
+                        </div>
+                        <div class="project-tech">
+                            <span>Go</span>
+                            <span>Gin</span>
+                            <span>MySQL</span>
+                            <span>React</span>
+                            <span>Clean Architecture</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/urlpick" target="_blank" aria-label="GitHub">
+                                <i class="ri-github-fill"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-visual"
+                        style="display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 20px; padding: 30px;">
+                        <img src="images/go.svg" alt="Go" style="height: 60px; opacity: 0.85;">
+                        <img src="images/gin.svg" alt="Gin" style="height: 60px; opacity: 0.85;">
+                        <img src="images/docker.svg" alt="Docker" style="height: 60px; opacity: 0.85;">
+                        <img src="images/redis.svg" alt="Redis" style="height: 60px; opacity: 0.85;">
+                        <img src="images/postgresql.svg" alt="PostgreSQL" style="height: 60px; opacity: 0.85;">
+                    </div>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-content">
+                        <p class="project-label">Project</p>
+                        <h3 class="project-title">Gin 백엔드 템플릿</h3>
+                        <div class="project-description">
+                            CRUD 프로젝트 개발 시 반복적인 아키텍처 설계 과정을 줄이기 위한 구조화된 백엔드 템플릿입니다.
+                            레이어드 아키텍처와 Repository Pattern을 적용했으며,
+                            JWT 기반 인증 시스템과 리프레시 토큰 RTR을 구현했습니다.
+                        </div>
+                        <div class="project-tech">
+                            <span>Go</span>
+                            <span>Gin</span>
+                            <span>JWT</span>
+                            <span>Layered Architecture</span>
+                            <span>Repository Pattern</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/in-jun/go-structure-example" target="_blank"
+                                aria-label="GitHub">
+                                <i class="ri-github-fill"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-visual"
+                        style="display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 20px; padding: 30px;">
+                        <img src="images/go.svg" alt="Go" style="height: 70px; opacity: 0.85;">
+                        <img src="images/gin.svg" alt="Gin" style="height: 70px; opacity: 0.85;">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="achievements">
+            <h2 class="section-title" data-number="04.">Achievements</h2>
+            <div class="achievements-grid">
+                <div class="achievement-item">
+                    <h3 class="achievement-title">교과우수상 (컴퓨터 구조)</h3>
+                    <p class="achievement-description">
+                        컴퓨터 구조 과목에서 우수한 성적을 달성하여 교과우수상을 수상했습니다.
+                    </p>
+                    <div class="achievement-meta">
+                        <span>2024.07</span>
+                    </div>
+                </div>
+
+                <div class="achievement-item">
+                    <h3 class="achievement-title">해커톤 대회 우수상</h3>
+                    <p class="achievement-description">
+                        팀장 및 백엔드 개발자로 참여하여 Spring Boot 기반 RESTful API를 활용한 모의 투자 서비스를 주도했습니다.
+                    </p>
+                    <div class="achievement-meta">
+                        <span>2024.07</span>
+                    </div>
+                </div>
+
+                <div class="achievement-item">
+                    <h3 class="achievement-title">리눅스마스터 2급</h3>
+                    <p class="achievement-description">
+                        리눅스 시스템 관리 및 운영 능력을 인증받았습니다.
+                    </p>
+                    <div class="achievement-meta">
+                        <span>2025.03</span>
+                        <span>한국정보통신진흥협회</span>
+                    </div>
+                </div>
+
+                <div class="achievement-item">
+                    <h3 class="achievement-title">정보처리기능사</h3>
+                    <p class="achievement-description">
+                        정보처리 및 소프트웨어 개발 기초 역량을 인증받았습니다.
+                    </p>
+                    <div class="achievement-meta">
+                        <span>2024.04</span>
+                        <span>한국산업인력공단</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2 class="section-title" data-number="05." style="margin: 0 auto 4rem;">Get In Touch</h2>
+            <h3 class="contact-title">함께 일하고 싶으시다면</h3>
+            <p class="contact-description">
+                새로운 기회와 협업에 항상 열려있습니다.
+                DevOps, 인프라, 백엔드 개발 관련 프로젝트나 대화를 환영합니다.
+                연락 주시면 빠르게 답변드리겠습니다!
+            </p>
+            <a href="mailto:me@injun.dev" class="contact-button">이메일 보내기</a>
+        </section>
+    </main>
+
     <script>
-        // 스크롤 애니메이션
+        // Active navigation link
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-menu a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Header background on scroll
+        const header = document.querySelector('.header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // 스크롤 애니메이션 (Intersection Observer)
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
+
+                    // 순차 애니메이션 처리
+                    const staggerItems = entry.target.querySelectorAll('.stagger-item');
+                    staggerItems.forEach((item, index) => {
+                        setTimeout(() => {
+                            item.classList.add('visible');
+                        }, index * 100);
+                    });
                 }
             });
-        }, { threshold: 0.1 });
+        }, observerOptions);
 
-        document.querySelectorAll('.section').forEach(section => {
-            observer.observe(section);
+        // 애니메이션 대상 요소 등록
+        document.querySelectorAll('.section-title, .about-content, .experience-item, .project-item, .achievement-item, .contact-title, .contact-description').forEach(el => {
+            el.classList.add('animate-on-scroll');
+            observer.observe(el);
         });
 
-        // 카드 호버 효과
-        document.querySelectorAll('.project, .achievement-card').forEach(card => {
-            card.addEventListener('mouseenter', () => {
-                card.style.transform = 'translateY(-5px)';
-                card.style.borderColor = 'var(--primary)';
-            });
+        // 스킬 아이템 순차 애니메이션
+        document.querySelectorAll('.skill-item').forEach(el => {
+            el.classList.add('stagger-item');
+        });
 
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = 'translateY(0)';
-                card.style.borderColor = 'var(--border)';
-            });
+        document.querySelectorAll('.skill-category').forEach(category => {
+            observer.observe(category);
         });
     </script>
 </body>
